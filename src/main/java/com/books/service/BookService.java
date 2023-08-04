@@ -47,7 +47,7 @@ public class BookService {
         // Verificar se o livro existe antes de atualizar
         BookModel book = getBookById(id);
 
-        if(bookDTO.getTitle().trim().isEmpty() || bookDTO.getAuthor().trim().isEmpty()) {
+        if (bookDTO.getTitle().trim().isEmpty() || bookDTO.getAuthor().trim().isEmpty()) {
             throw new InvalidBookDataException("Título e autor do livro são obrigatórios.");
         }
 
@@ -61,18 +61,14 @@ public class BookService {
     public void deleteBook(Long id) {
         // Verificar se o livro existe antes de excluir
         getBookById(id);
-        if (getBookById(id) != null) {
-            bookRepository.deleteById(id);
-            return;
-        }
-        throw new BookNotFoundException("Livro não existe! Informe um livro existente.");
+        bookRepository.deleteById(id);
     }
 
-    public List<BookModel> findAll(){
+    public List<BookModel> findAll() {
         return bookRepository.findAll();
     }
 
-    public void deleteAllBooks(){
+    public void deleteAllBooks() {
         bookRepository.deleteAll();
     }
 }
