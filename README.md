@@ -78,7 +78,7 @@ A seguir, estão listados os endpoints disponíveis na API:
 
 A API faz uso de tratamento de exceções para garantir que os erros sejam adequadamente tratados e retornem respostas adequadas ao cliente. As seguintes exceções são tratadas na API:
 
-1. **ResourceNotFoundException (404 Not Found)**:
+1. **BookNotFoundException (404 Not Found)**:
    - Descrição: Lançada quando um livro não é encontrado por um determinado ID.
 
 2. **InvalidBookDataException (400 Bad Request)**:
