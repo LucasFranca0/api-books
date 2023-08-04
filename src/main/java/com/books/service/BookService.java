@@ -26,7 +26,7 @@ public class BookService {
 
     public BookModel getBookById(Long id) {
         return bookRepository.findById(id)
-                .orElseThrow(() -> new BookNotFoundException("BookModel not found with id: " + id));
+                .orElseThrow(() -> new BookNotFoundException("Livro não encontrado com o ID: " + id));
     }
 
     public BookModel createBook(BookDTO bookDTO) {
