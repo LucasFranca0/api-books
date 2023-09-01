@@ -1,5 +1,6 @@
 package com.products.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.validation.constraints.*;
@@ -38,9 +39,10 @@ public class ProductDTO {
     @Size(max = 50, message = "O idioma deve ter no máximo 50 caracteres.")
     private String language;
 
+    @JsonProperty("product_type")
     @NotBlank(message = "O tipo de produto é obrigatório.")
     @Size(max = 50, message = "O tipo de produto deve ter no máximo 50 caracteres.")
-    private String productType;
+    private String product_type;
 
     private Integer volume;
 

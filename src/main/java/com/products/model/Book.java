@@ -8,5 +8,8 @@ import lombok.Data;
 @Entity
 @DiscriminatorValue("book")
 public class Book extends Product{
-
+    @Override
+    public String getProductType() {
+        return "book";
+    }
 }

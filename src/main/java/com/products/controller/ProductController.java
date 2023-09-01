@@ -12,6 +12,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/products")
 public class ProductController {
 
@@ -23,7 +24,7 @@ public class ProductController {
     // Requisições
     @GetMapping
     public List<Product> getAllProducts() {
-        return productService.findAll();
+        return productService.getAllProducts();
     }
 
     @GetMapping("/{id}")

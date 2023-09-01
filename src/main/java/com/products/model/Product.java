@@ -1,5 +1,7 @@
 package com.products.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -10,6 +12,7 @@ import java.math.BigDecimal;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "product_type", discriminatorType = DiscriminatorType.STRING)
+@JsonInclude(JsonInclude.Include.NON_NULL) // Isso exclui valores nulos do JSON
 public abstract class Product {
 
     @Id
@@ -52,4 +55,7 @@ public abstract class Product {
     // Exemplo de validação do formato do ISBN (10 ou 13 dígitos)
     @Pattern(regexp = "\\d{9}[\\d|X]|\\d{13}", message = "O ISBN deve ser um número de 10 ou 13 dígitos")
     private String isbn;
+
+    @JsonProperty("product_type")
+    public abstract String getProductType();
 }

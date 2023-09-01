@@ -39,12 +39,12 @@ public class ProductService {
         }
 
         if (productDTO.getVolume() == null) {
-            Book book = new Book();
+            Product book = new Book();
             BeanUtils.copyProperties(productDTO, book);
             return productRepository.save(book);
         }
 
-        Manga manga = new Manga();
+        Product manga = new Manga();
         BeanUtils.copyProperties(productDTO, manga);
         return productRepository.save(manga);
     }
@@ -65,10 +65,6 @@ public class ProductService {
         // Verificar se o livro/mangá existe antes de excluir
         getProductById(id);
         productRepository.deleteById(id);
-    }
-
-    public List<Product> findAll() {
-        return productRepository.findAll();
     }
 
     public void deleteAllProducts() {
